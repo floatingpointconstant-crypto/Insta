@@ -1,39 +1,36 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Demo Login</title>
-</head>
-<body style="background:black;color:white;text-align:center;margin-top:100px;">
 
-<h2>Demo Login</h2>
-
-<form id="form">
-  <input id="username" placeholder="Enter username" required><br><br>
-  <input type="password" placeholder="Password (not stored)" required><br><br>
-  <button type="submit">Login</button>
-</form>
-
-<script>
-document.getElementById("form").addEventListener("submit", function(e){
-  e.preventDefault();
-
-  const username = document.getElementById("username").value;
-
-  fetch("https://api.jsonbin.io/v3/b/69df714aaaba8821970005b1", {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      username: username,
-      note: "Demo login (no password stored)",
-      time: new Date().toLocaleString()
-    })
-  })
-  .then(() => alert("Demo submitted"))
-  .catch(err => console.log(err));
-});
-</script>
-
-</body>
-</html>
+    <div class="container">
+      <div class="box">
+        <div class="heading"></div>
+        <form class="login-form">
+          <div class="field">
+            <input
+              id="username"
+              type="name"
+              placeholder="Phone number, username, or email"
+            />
+            <label for="username">Phone number, username, or email</label>
+          </div>
+          <div class="field">
+            <input id="password" type="password" placeholder="password" />
+            <label for="password">Password</label>
+          </div>
+						<button class="login-button" title="login">Log In</button>
+						<div class="separator">
+							<div class="line"></div>
+							<p>OR</p>
+							<div class="line"></div>
+						</div>
+          <div class="other">
+            <button class="fb-login-btn" type="button">
+              <i class="fa fa-facebook-official fb-icon"></i>
+              <span class="">Log in with Facebook</span>
+            </button>
+            <a class="forgot-password" href="#">Forgot password?</a>
+          </div>
+        </form>
+      </div>
+      <div class="box">
+        <p>Don't have an account? <a class="signup" href="#">Sign Up</a></p>
+      </div>
+    </div>
